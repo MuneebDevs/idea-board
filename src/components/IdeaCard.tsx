@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+
 type Idea = {
   id: string;
   text: string;
@@ -13,9 +15,19 @@ type Props = {
 };
 
 export default function IdeaCard({ idea, onUpvoted }: Props) {
+  const [hasUpvoted, setHasUpvoted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   async function upvote() {
-    await fetch(`/api/ideas/${idea.id}/upvote`, { method: "POST" });
-    onUpvoted?.();
+    if (hasUpvoted || isSubmitting) return;
+    setHasUpvoted(true);
+    setIsSubmitting(true);
+    try {
+      await fetch(`/api/ideas/${idea.id}/upvote`, { method: "POST" });
+      onUpvoted?.();
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   const date = new Date(idea.createdAt);
@@ -27,9 +39,19 @@ export default function IdeaCard({ idea, onUpvoted }: Props) {
         <span>{date.toLocaleString()}</span>
         <button
           onClick={upvote}
-          className="inline-flex items-center gap-2 rounded-full bg-neutral-100 dark:bg-neutral-800 px-3 py-1 hover:bg-neutral-200 dark:hover:bg-neutral-700"
+          disabled={hasUpvoted || isSubmitting}
+          className={`inline-flex items-center gap-2 rounded-full px-3 py-1 ${
+            hasUpvoted
+              ? "bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-300 cursor-not-allowed"
+              : "bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700"
+          }`}
+          title={hasUpvoted ? "You already upvoted" : "Upvote"}
         >
-          <span>▲</span>
+          {isSubmitting ? (
+            <span className="h-3 w-3 rounded-full border-2 border-current border-t-transparent animate-spin" />
+          ) : (
+            <span>▲</span>
+          )}
           <span>{idea.upvotes}</span>
         </button>
       </div>

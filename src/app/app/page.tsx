@@ -14,12 +14,15 @@ type Idea = {
 export default function IdeaBoardPage() {
   const [ideas, setIdeas] = useState<Idea[]>([]);
   const [loading, setLoading] = useState(true);
+  const [refreshing, setRefreshing] = useState(false);
 
   async function load() {
+    if (!loading) setRefreshing(true);
     const res = await fetch("/api/ideas", { cache: "no-store" });
     const data = await res.json();
     setIdeas(data);
     setLoading(false);
+    setRefreshing(false);
   }
 
   useEffect(() => {
@@ -45,7 +48,15 @@ export default function IdeaBoardPage() {
               Share ideas anonymously. Upvote what resonates.
             </p>
           </div>
-          <div className="text-sm text-neutral-500">Max 280 characters • Updates every 5s</div>
+          <div className="flex items-center gap-3 text-sm text-neutral-500">
+            <span>Max 280 characters • Updates every 5s</span>
+            {refreshing && (
+              <span className="inline-flex items-center gap-2 text-neutral-400">
+                <span className="h-3 w-3 rounded-full border-2 border-neutral-300 border-t-transparent animate-spin" />
+                Refreshing
+              </span>
+            )}
+          </div>
         </div>
 
         <div className="mt-6">

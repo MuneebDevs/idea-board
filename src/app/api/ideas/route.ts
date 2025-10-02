@@ -3,7 +3,12 @@ import { prisma } from "@/lib/prisma";
 
 export async function GET() {
   try {
-    const ideas = await prisma.idea.findMany({ orderBy: { createdAt: "desc" } });
+    const ideas = await prisma.idea.findMany({
+      orderBy: [
+        { upvotes: "desc" },
+        { createdAt: "desc" },
+      ],
+    });
     return new NextResponse(JSON.stringify(ideas), {
       status: 200,
       headers: { "Content-Type": "application/json", "Cache-Control": "no-store" },
