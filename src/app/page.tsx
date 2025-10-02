@@ -51,15 +51,23 @@ export default function Home() {
           </div>
           <div className="relative">
             <div className="absolute -inset-4 rounded-2xl bg-gradient-to-tr from-blue-500/20 to-fuchsia-500/20 blur-2xl" />
-            <div className="relative rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white/70 dark:bg-neutral-900/70 p-6 shadow-xl">
-              <div className="h-40 rounded-lg bg-gradient-to-br from-neutral-100 to-neutral-200 dark:from-neutral-800 dark:to-neutral-900 flex items-center justify-center text-neutral-500">
-                Live, collaborative idea board preview
+            <div className="relative rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white/70 dark:bg-neutral-900/70 shadow-xl overflow-hidden">
+              <div className="border-b border-neutral-200 dark:border-neutral-800 px-4 py-2 flex items-center gap-1 text-neutral-400 text-xs">
+                <span className="inline-block h-2 w-2 rounded-full bg-red-400" />
+                <span className="inline-block h-2 w-2 rounded-full bg-yellow-400" />
+                <span className="inline-block h-2 w-2 rounded-full bg-green-400" />
+                <span className="ml-2">Live preview</span>
               </div>
-              <ul className="mt-4 space-y-2 text-sm text-neutral-600 dark:text-neutral-300">
-                <li>• Post your idea up to 280 characters</li>
-                <li>• Upvote ideas that resonate</li>
-                <li>• Auto-refresh for a live feel</li>
-              </ul>
+              <div className="relative">
+                <iframe
+                  title="IdeaBoard preview"
+                  src="/app"
+                  loading="lazy"
+                  className="w-full h-[420px] md:h-[460px] bg-white dark:bg-neutral-950"
+                  style={{ pointerEvents: "none" }}
+                />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/60 dark:to-neutral-950/60" />
+              </div>
             </div>
           </div>
         </section>
