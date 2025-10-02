@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ideaboard-web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ideaboard-web
+  template:
+    metadata:
+      labels:
+        app: ideaboard-web
+    spec:
+      containers:
+        - name: web
+          image: your-dockerhub-username/ideaboard-web:latest
+          ports:
+            - containerPort: 3000
+          env:
+            - name: DATABASE_URL
+              value: postgresql://postgres:postgres@ideaboard-postgres:5432/ideaboard?schema=public
+
+

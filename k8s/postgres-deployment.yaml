@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ideaboard-postgres
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ideaboard-postgres
+  template:
+    metadata:
+      labels:
+        app: ideaboard-postgres
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:16-alpine
+          env:
+            - name: POSTGRES_USER
+              value: postgres
+            - name: POSTGRES_PASSWORD
+              value: postgres
+            - name: POSTGRES_DB
+              value: ideaboard
+          ports:
+            - containerPort: 5432
+
+

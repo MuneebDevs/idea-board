@@ -1,0 +1,18 @@
+# syntax=docker/dockerfile:1.7
+
+FROM node:20-alpine
+
+WORKDIR /app
+
+RUN apk add --no-cache openssl libc6-compat
+
+COPY package.json package-lock.json ./
+RUN npm install
+
+EXPOSE 3000
+
+ENV NODE_ENV=development
+
+CMD ["sh", "-c", "npx prisma generate && npm run dev"]
+
+

@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ideaboard-postgres
+spec:
+  selector:
+    app: ideaboard-postgres
+  ports:
+    - name: db
+      port: 5432
+      targetPort: 5432
+  type: ClusterIP
+
+
