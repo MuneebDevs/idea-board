@@ -39,7 +39,7 @@ export default function IdeaForm({ onSubmitted }: Props) {
         <button
           onClick={submit}
           disabled={submitting || text.trim().length === 0}
-          className="inline-flex items-center gap-2 rounded-md bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white px-4 py-2"
+          className="inline-flex items-center gap-2 rounded-md bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 disabled:opacity-50 text-white px-4 py-2 active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-blue-500/60 cursor-pointer"
         >
           {submitting && (
             <span className="h-4 w-4 rounded-full border-2 border-white/80 border-t-transparent animate-spin" />

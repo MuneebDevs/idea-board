@@ -36,7 +36,7 @@ export default function IdeaBoardPage() {
       <header className="sticky top-0 z-20 backdrop-blur supports-[backdrop-filter]:bg-white/60 dark:supports-[backdrop-filter]:bg-neutral-950/60 border-b border-transparent">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="text-lg font-semibold">IdeaBoard</div>
-          <a href="/" className="text-sm text-blue-600 hover:underline">Home</a>
+          <a href="/" className="text-sm text-blue-600 hover:underline cursor-pointer active:opacity-90">Home</a>
         </div>
       </header>
 

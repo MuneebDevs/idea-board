@@ -14,11 +14,11 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="text-xl font-semibold tracking-tight">IdeaBoard</div>
           <nav className="hidden sm:flex items-center gap-6 text-sm text-neutral-600 dark:text-neutral-300">
-            <a href="#features" className="hover:text-foreground">Features</a>
-            <a href="#testimonials" className="hover:text-foreground">Testimonials</a>
-            <a href="#faq" className="hover:text-foreground">FAQ</a>
+            <a href="#features" className="hover:text-foreground cursor-pointer">Features</a>
+            <a href="#testimonials" className="hover:text-foreground cursor-pointer">Testimonials</a>
+            <a href="#faq" className="hover:text-foreground cursor-pointer">FAQ</a>
           </nav>
-          <Link href="/app" className="ml-4 inline-flex items-center rounded-lg bg-blue-600 text-white px-4 py-2 text-sm font-medium shadow hover:bg-blue-700">
+          <Link href="/app" className="ml-4 inline-flex items-center rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-4 py-2 text-sm font-medium shadow hover:from-blue-500 hover:to-indigo-500 active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-blue-500/60 cursor-pointer">
             Open App
           </Link>
         </div>
@@ -37,13 +37,13 @@ export default function Home() {
             <div className="mt-8 flex flex-col sm:flex-row gap-3">
               <Link
                 href="/app"
-                className="inline-flex justify-center items-center rounded-lg bg-blue-600 text-white px-6 py-3 text-base font-medium shadow hover:bg-blue-700"
+                className="inline-flex justify-center items-center rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-3 text-base font-medium shadow-lg hover:from-blue-500 hover:to-indigo-500 active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-blue-500/60 cursor-pointer"
               >
                 Try the Idea Board
               </Link>
               <a
                 href="#features"
-                className="inline-flex justify-center items-center rounded-lg border border-neutral-300 dark:border-neutral-700 px-6 py-3 text-base font-medium hover:bg-neutral-100 dark:hover:bg-neutral-800"
+                className="inline-flex justify-center items-center rounded-lg border border-neutral-300 dark:border-neutral-700 px-6 py-3 text-base font-medium hover:bg-neutral-100 dark:hover:bg-neutral-800 active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-neutral-500/40 cursor-pointer"
               >
                 Learn more
               </a>
@@ -249,7 +249,7 @@ export default function Home() {
           <h2 className="text-2xl font-semibold">Ready to collect ideas?</h2>
           <Link
             href="/app"
-            className="mt-6 inline-flex items-center rounded-lg bg-blue-600 text-white px-6 py-3 text-base font-medium shadow hover:bg-blue-700"
+            className="mt-6 inline-flex items-center rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-3 text-base font-medium shadow-lg hover:from-blue-500 hover:to-indigo-500 active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-blue-500/60 cursor-pointer"
           >
             Go to the App
           </Link>

@@ -7,9 +7,9 @@ async function runSeed() {
 		if (existing === 0) {
 			await prisma.idea.createMany({
 				data: [
-					{ text: "Lightweight idea board to crowdsource feature requests" },
-					{ text: "Dark mode and keyboard shortcuts everywhere" },
-					{ text: "Integrate with Slack for notifications" },
+					{ text: "Lightweight idea board" },
+					{ text: "Dark mode keyboard shortcuts" },
+					{ text: "Integrate with Slack" },
 				],
 			});
 		}
