@@ -6,7 +6,13 @@ declare global {
 }
 
 const prismaClientSingleton = () => {
-  return new PrismaClient();
+  console.log("Creating new Prisma client");
+  console.log("DATABASE_URL available:", !!process.env.DATABASE_URL);
+  console.log("POSTGRES_URL_NON_POOLING available:", !!process.env.POSTGRES_URL_NON_POOLING);
+  
+  return new PrismaClient({
+    log: process.env.NODE_ENV === "development" ? ["query", "error", "warn"] : ["error"],
+  });
 };
 
 export const prisma: PrismaClient =
