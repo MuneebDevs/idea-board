@@ -6,14 +6,7 @@ declare global {
 }
 
 const prismaClientSingleton = () => {
-  return new PrismaClient({
-    // Optimize for serverless
-    datasources: {
-      db: {
-        url: process.env.DATABASE_URL,
-      },
-    },
-  });
+  return new PrismaClient();
 };
 
 export const prisma: PrismaClient =
