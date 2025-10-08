@@ -24,7 +24,7 @@ In your Vercel project dashboard, go to **Settings** → **Environment Variables
 **Production Environment Variables:**
 
 ```
-DATABASE_URL = your_database_url_here
+POSTGRES_PRISMA_URL = your_postgres_prisma_url_here
 
 POSTGRES_URL_NON_POOLING = your_postgres_non_pooling_url_here
 
@@ -36,6 +36,8 @@ SUPABASE_SERVICE_ROLE_KEY = your_supabase_service_role_key_here
 
 SUPABASE_JWT_SECRET = your_supabase_jwt_secret_here
 ```
+
+**Note:** The app will automatically use `POSTGRES_PRISMA_URL` as the `DATABASE_URL` that Prisma needs.
 
 **How to get these values:**
 
